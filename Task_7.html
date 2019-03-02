@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Senla JS test - Task 7</title>
+	<style>
+		body {
+		    background-color: rgb(0, 90, 180);
+		    color: white;
+		}
+	</style>
+</head>
+<body>
+	<h1>Senla JS test</h1>
+	<h2>Task 7</h2>
+	<h3>Some test values:</h3>
+	<p>Test:<br>
+		let obj = createHolder('almost...')<br>
+		console.log(obj.getValue())<br>
+		obj.setValue('DONE!!!)');<br>
+		console.log(obj.getValue());</p>
+	<p><strong>Result displayed in the browser console...</strong></p>
+
+	<script>
+		function createHolder(value) {
+			return {
+				value: value,
+				getValue: function () {
+					return this.value;
+				},
+				setValue: function (newValue) {
+					this.value = newValue;
+				}
+			}
+		}
+
+		//Test
+		let obj = createHolder('Almost...');
+		console.log(obj.getValue());
+		obj.setValue('DONE!!!)');
+		console.log(obj.getValue());
+	</script>
+</body>
+</html>

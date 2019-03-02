@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Senla JS test - Task 2</title>
+	<style>
+		body {
+		    background-color: rgb(0, 90, 180);
+		    color: white;
+		}
+		#input_field{
+			width: 200px;
+		}
+		.block{
+			width: 40px;
+			height: 20px;
+			margin: 4px;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<h1>Senla JS test</h1>
+	<h2>Task 2</h2>
+	<input type="number" id="input_field"  min="0" max="30" placeholder="Enter number from 0 to 30...">
+	<input type="button" id="input_button" value="Enter">
+	<div id="result"></div>
+
+	<script>
+		let inputButton = document.getElementById("input_button");
+		inputButton.addEventListener('click', drawBlocks);
+
+		function drawBlocks(){
+			let result = document.getElementById("result");
+			result.innerHTML = "";
+			let inputNumber = document.getElementById("input_field").value;
+
+			if(inputNumber >= 0 && inputNumber <= 30){
+				for (let i = 1; i <= inputNumber; i++) {
+					let line = document.createElement("div");
+					line.classList.add("line");
+					result.appendChild(line);
+					for (let j =1; j <= inputNumber; j++){
+						let block = document.createElement("div");
+						block.classList.add("block");
+						block.style.backgroundColor = getRandomColor();
+						line.appendChild(block);
+					}
+		    	}
+			} else {
+				alert ("Need to enter number from 0 to 30");
+    		}
+		}
+
+		function getRandomColor() {
+			let r = Math.floor(Math.random() * 256);
+			let g = Math.floor(Math.random() * 256);
+			let b = Math.floor(Math.random() * 256);
+			return "rgb(" + r + "," + g + "," + b + ")";
+		}
+	</script>
+</body>
+</html>

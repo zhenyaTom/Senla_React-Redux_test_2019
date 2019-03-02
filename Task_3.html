@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Senla JS test - Task 3</title>
+	<style>
+		body {
+		    background-color: rgb(0, 90, 180);
+		    color: white;
+		}
+		#input_field{
+			width: 500px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Senla JS test</h1>
+	<h2>Task 3</h2>
+	<input id="input_field" placeholder="Enter some text...">
+	<input type="button" id="input_button" value="Enter">
+	<div id="result"></div>
+
+	<script>
+		let inputButton = document.getElementById("input_button");
+		inputButton.addEventListener('click', findShortestWordLength);
+
+		function findShortestWordLength() {
+			let words = document.getElementById("input_field").value.split(" ");
+			let minLength = words[0].length;
+			for (let i = 1; i < words.length; i++) {
+				let wordLength = words[i].length;
+				if (wordLength < minLength && wordLength !==0){
+					minLength = wordLength;
+				}
+			}
+			let result = document.getElementById("result");
+			result.innerHTML = "The shortest length of the word: " + minLength;
+		}
+	</script>
+</body>
+</html>

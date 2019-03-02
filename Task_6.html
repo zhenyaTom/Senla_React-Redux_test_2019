@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Senla JS test - Task 6</title>
+	<style>
+		body {
+		    background-color: rgb(0, 90, 180);
+		    color: white;
+		}
+	</style>
+</head>
+<body>
+	<h1>Senla JS test</h1>
+	<h2>Task 6</h2>
+	<h3>Some test values:</h3>
+	<p>Test 1: getFrame(['I', 'love', 'SENLA'], '+')<br>
+		Test 2: getFrame(['I', 'wish', 'a', 'good', 'day', 'to', 'everyone', 'who', 'checks', 'my', 'test'], '*')<br>
+	<p><strong>Result displayed in the browser console...</strong></p>
+
+	<script>
+		function getFrame(array, sign) {
+			let maxStringLength = array.slice().sort((a, b) => b.length - a.length)[0].length;
+			let frame = [];
+			frame.push(sign.repeat(maxStringLength + 4));
+			for (let i = 0; i < array.length; i++) {
+				frame.push(sign + " " + array[i] + " ".repeat(maxStringLength + 1 - array[i].length) + sign);
+			}
+			frame.push(sign.repeat(maxStringLength + 4));
+			return frame.join("\n");
+		}
+
+		//Test
+		console.info("Test 1: getFrame(['I', 'love', 'SENLA'], '+')");
+		console.log(getFrame(['I', 'love', 'SENLA'], '+'));
+		console.info("Test 2: getFrame(['I', 'wish', 'a', 'good', 'day', 'to', 'everyone', 'who', 'checks', 'my', 'test'], '*')");
+		console.log(getFrame(['I', 'wish', 'a', 'good', 'day', 'to', 'everyone', 'who', 'checks', 'my', 'test'], '*'));
+	</script>
+</body>
+</html>

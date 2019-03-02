@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Senla JS test - Task 5</title>
+	<style>
+		body {
+		    background-color: rgb(0, 90, 180);
+		    color: white;
+		}
+	</style>
+</head>
+<body>
+	<h1>Senla JS test</h1>
+	<h2>Task 5</h2>
+	<h3>Some test values:</h3>
+	<p>Test 1: getLowerestIndex([1, 2, 3, 4], 1.5)<br>
+		Test 2: getLowerestIndex([11, 1, 2, 10], 2.5)<br>
+	<p><strong>Result displayed in the browser console...</strong></p>
+
+	<script>
+		function getLowerestIndex(array, number) {
+			let copyArray = array.slice();
+			copyArray.push(number);
+			copyArray.sort((a, b) => a - b);
+			return copyArray.indexOf(number);
+		}
+
+		//Test
+		console.info("Test 1: getLowerestIndex([1, 2, 3, 4], 1.5)");
+		console.log(getLowerestIndex([1, 2, 3, 4], 1.5));
+		console.info("Test 2: getLowerestIndex([11, 1, 2, 10], 2.5)");
+		console.log(getLowerestIndex([11, 1, 2, 10], 2.5));
+	</script>
+</body>
+</html>

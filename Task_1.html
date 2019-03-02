@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Senla JS test - Task 1</title>
+	<style>
+		body {
+		    background-color: rgb(0, 90, 180);
+		    color: white;
+		}
+	</style>
+</head>
+<body>
+	<h1>Senla JS test</h1>
+	<h2>Task 1</h2>
+	<input type="number" id="input_field"  min="1" placeholder="Enter number...">
+	<input type="button" id="input_button" value="Enter">
+	<div id="result"></div>
+
+	<script>
+		let inputButton = document.getElementById("input_button");
+		inputButton.addEventListener('click', countBugs);
+
+		function countBugs(){
+			let inputNumber = document.getElementById("input_field").value;
+			let result = document.createElement("div");
+			if(inputNumber > 0){
+				for (let i = 1; i <= inputNumber; i++) {
+        	    	result.innerHTML += (i + " bug...");
+		    	}
+		    	document.getElementById("result").appendChild(result);
+			} else {
+				alert ("Need to enter number greater than 0");
+    		}
+		}
+	</script>
+</body>
+</html>

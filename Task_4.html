@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Senla JS test - Task 4</title>
+	<style>
+		body {
+		    background-color: rgb(0, 90, 180);
+		    color: white;
+		}
+	</style>
+</head>
+<body>
+	<h1>Senla JS test</h1>
+	<h2>Task 4</h2>
+	<h3>Some test values:</h3>
+	<p>Test 1: getDimensionalArray([0, 1, 2, 3, 4, 5], 3))<br>
+		Test 2: getDimensionalArray([aaa, bbb, ccc, ddd, eee], 3))<br>
+		Test 3: getDimensionalArray([0, 1, 2, 3], 5))</p>
+	<p><strong>Result displayed in the browser console...</strong></p>
+
+	<script>
+		function getDimensionalArray(array, dimension) {
+			let dimensionalArray = [];
+			for (let i = 0; i < Math.ceil(array.length/dimension); i++){
+				dimensionalArray[i] = array.slice((i*dimension), (i*dimension) + dimension);
+				if (dimensionalArray[i].length < dimension){			//This statement for receiving subarrays of strictly specified length
+					for(let j = dimensionalArray[i].length; j< dimension; j++){
+						dimensionalArray[i].push(null);
+					}
+				}
+			}
+			return dimensionalArray;
+		}
+
+		//Test
+		console.info("Test 1: getDimensionalArray([0, 1, 2, 3, 4, 5], 3))");
+		console.log(getDimensionalArray([0, 1, 2, 3, 4, 5], 3));
+		console.info("Test 2: getDimensionalArray([aaa, bbb, ccc, ddd, eee], 3))");
+		console.log(getDimensionalArray(["aaa", "bbb", "ccc", "ddd", "eee"], 3));
+		console.info("Test 3: getDimensionalArray([0, 1, 2, 3], 5))");
+		console.log(getDimensionalArray([0, 1, 2, 3], 5));
+	</script>
+</body>
+</html>
